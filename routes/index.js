@@ -123,7 +123,7 @@ router.post('/connectfour/api/v1/sids/:sid', (req, res, next) => {
   if(!(isValidSid(sid)) || !colorCodeRegex.test(color) || !playerTokenId || !computerTokenId) {
     res.status(200).json(new Error("Error with user input"));
   }else{
-    var thisGame = new Game(theme, 'UNFINISHED', Date.now(), null, getEmptyBoard());
+    var thisGame = new Game(theme, 'UNFINISHED', displayDate(), null, getEmptyBoard());
     if (sid in gameList) {
       gameList[sid].push(thisGame);
     } else {
@@ -132,6 +132,26 @@ router.post('/connectfour/api/v1/sids/:sid', (req, res, next) => {
     res.status(200).json(thisGame);
   }
 });
+
+//This is a function that displays the current date and time in this formate
+// Day Month Day Date Year
+function displayDate(){
+    let date = new Date();
+    let dateString = getDayName(date.getDay()) + ' ' + getMonthName(date.getMonth()) + ' ' + date.getDate() + ' ' + date.getFullYear();
+    return dateString;
+}
+
+//This is a function that takes a month number and returns the month name
+function getMonthName(monthNumber){
+    let monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+    return monthNames[monthNumber];
+}
+
+//This is a function that takes a day number and returns a day name
+function getDayName(dayNumber){
+    let dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    return dayNames[dayNumber];
+}
 
 /* GET /connectfour/api/v1/sids/:sid/gids/:gid */
 // This endpoint delivers a game object associated with the given SID and GID
@@ -207,7 +227,7 @@ function makeMove(game, move) {
   gameOverX = fourInARow(grid, 'x');
   gameOverO = fourInARow(grid, 'o');
   if(gameOverFull || gameOverX || gameOverO){
-    game.finish = Date.now();
+    game.finish = displayDate();
     gameOverX ? game.status = 'VICTORY' : game.status = 'LOSS';
     if(gameOverFull){
       game.status = 'TIE';

@@ -232,8 +232,7 @@ function addGame(game){
     $(computerImg).css('border-radius', '100%');
     let playerTokenCol = $('<td>').append(playerImg);
     let computerTokenCol = $('<td>').append(computerImg);
-    let date = new Date(game.start);
-    let timeStart = $('<td>').text(date.toLocaleString());
+    let timeStart = $('<td>').text(game.start);
     let timeFinished = $('<td>').text('-');
     let buttonContainer = $('<td>');
     let button = getButton(game.id);
@@ -358,7 +357,6 @@ function loadGame(game){
     let row = $('#'+game.id);
     let statusData = row.children().eq(0);
     let finishedData = row.children().eq(4);
-    let finishDate = new Date(game.finish);
     if(game.status == 'UNFINISHED'){
         $('#win').css('visibility', 'hidden');
         $('#lose').css('visibility', 'hidden');
@@ -370,19 +368,19 @@ function loadGame(game){
         $('#lose').css('visibility', 'visible');
         $('.top').css('visibility', 'hidden');
         statusData.text('LOSS');
-        finishedData.text(finishDate.toLocaleString());
+        finishedData.text(game.finish);
         $('#status').text('LOSS');
     }else if(game.status == 'VICTORY') {
         $('#win').css('visibility', 'visible');
         $('.top').css('visibility', 'hidden');
         statusData.text('VICTORY');
-        finishedData.text(finishDate.toLocaleString());
+        finishedData.text(game.finish);
         $('#status').text('VICTORY');
     }else if(game.status == 'TIE') {
         $('.top').css('visibility', 'hidden');
         alert('Wow! You made a tied with a random number generator!'); 
         statusData.text('TIE');
-        finishedData.text(finishDate.toLocaleString());
+        finishedData.text(game.finish);
         $('#status').text('TIE');
     }
 }
