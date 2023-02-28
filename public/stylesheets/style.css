@@ -170,10 +170,10 @@ div.top:hover{
 
 .token{
   position: relative;
-  right: 1px;
   overflow: hidden;
   border-radius: 1000px;
   border: 1px solid black;
+  right: 2px;
   width: 74px;
   height: 74px;
 }
