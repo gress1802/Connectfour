@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Connect Four</title>
+        <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel = "stylesheet" href = "./stylesheets/style.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src = "./js/app.js"></script>
+    </head>
+    <body onload = "populateSelector(); createSid()">
+        <div id = "main">
+            <div id = "flexAbove">
+                <div class = "item colorBox">
+                    <label id = "colorLabel" for = "head">Color</label>
+                    <input type = "color" name = "head" id = "head" value = "#e66465">
+                </div>
+                <div class = "item playerBox">
+                    <label id = "playerLabel" for="player">Player</label>
+                    <select onchange = "disablePlayer()" id="playerSelect" name="player">
+                    </select>
+                </div>
+                <div class = "item computerBox">
+                    <label id = "computerLabel" for="computer">Computer</label>
+                    <select onchange = "disableComputer()" id="computerSelect" name="computer">
+                    </select>
+                </div>
+                <div class = "item">
+                    <button type="button" class="btn btn-primary" onclick = "returnGameboard(); createGame()">Create</button>
+                </div>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Player</th>
+                    <th scope="col">Computer</th>
+                    <th scope="col">Time Started</th>
+                    <th scope="col">Time Finished</th>
+                    <th scope="col">&nbsp</th>
+                    </tr>
+                </thead>
+                <tbody id = "tablebody">
+                </tbody>
+            </table>
+        </div>
+        <div id = "gameboard">
+            <button type="button" class="returnButton btn btn-primary" onclick = "returnMain()">Return</button>
+            <div id = "box"></div>
+            <div id = "coloredBoard"></div>
+            <div id = "selectBox">
+                <img src = "./images/cry.gif" id = "lose" alt = "lostImg">
+                <img src = "./images/winner.gif" id = "win" alt = "winImg">
+            </div>
+            <div class = "gridContainer">
+                <div id = "0" class = "gridItem top"><img class = "token" src = "./images/cry.gif" alt = "playerToken" onclick = "makeMove(0)"></div>
+                <div id = "1" class = "gridItem top"><img class = "token" src = "./images/cry.gif" alt = "playerToken" onclick = "makeMove(1)"></div>
+                <div id = "2" class = "gridItem top"><img class = "token" src = "./images/cry.gif" alt = "playerToken" onclick = "makeMove(2)"></div>
+                <div id = "3" class = "gridItem top"><img class = "token" src = "./images/cry.gif" alt = "playerToken" onclick = "makeMove(3)"></div>
+                <div id = "4" class = "gridItem top"><img class = "token" src = "./images/cry.gif" alt = "playerToken" onclick = "makeMove(4)"></div>
+                <div id = "5" class = "gridItem top"><img class = "token" src = "./images/cry.gif" alt = "playerToken" onclick = "makeMove(5)"></div>
+                <div id = "6" class = "gridItem top"><img class = "token" src = "./images/cry.gif" alt = "playerToken" onclick = "makeMove(6)"></div>
+                <div id = "00" class = "gridItem"></div>
+                <div id = "01" class = "gridItem"></div>
+                <div id = "02" class = "gridItem"></div>
+                <div id = "03" class = "gridItem"></div>
+                <div id = "04" class = "gridItem"></div>
+                <div id = "05" class = "gridItem"></div>
+                <div id = "06" class = "gridItem"></div>
+                <div id = "10" class = "gridItem"></div>
+                <div id = "11" class = "gridItem"></div>
+                <div id = "12" class = "gridItem"></div>
+                <div id = "13" class = "gridItem"></div>
+                <div id = "14" class = "gridItem"></div>
+                <div id = "15" class = "gridItem"></div>
+                <div id = "16" class = "gridItem"></div>
+                <div id = "20" class = "gridItem"></div>
+                <div id = "21" class = "gridItem"></div>
+                <div id = "22" class = "gridItem"></div>
+                <div id = "23" class = "gridItem"></div>
+                <div id = "24" class = "gridItem"></div>
+                <div id = "25" class = "gridItem"></div>
+                <div id = "26" class = "gridItem"></div>
+                <div id = "30" class = "gridItem"></div>
+                <div id = "31" class = "gridItem"></div>
+                <div id = "32" class = "gridItem"></div>
+                <div id = "33" class = "gridItem"></div>
+                <div id = "34" class = "gridItem"></div>
+                <div id = "35" class = "gridItem"></div>
+                <div id = "36" class = "gridItem"></div>
+                <div id = "40" class = "gridItem"></div>
+                <div id = "41" class = "gridItem"></div>
+                <div id = "42" class = "gridItem"></div>
+                <div id = "43" class = "gridItem"></div>
+                <div id = "44" class = "gridItem"></div>
+                <div id = "45" class = "gridItem"></div>
+                <div id = "46" class = "gridItem"></div>
+            </div>
+            <p id = "status"></p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,265 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-width: 900px;
+  height: 900px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.table{
+  position: relative;
+  width: 90%;
+  top: 20vh;
+  left: 5%;
+}
+
+.colorBox{
+  display: inline-block;
+  padding: 5px;
+  border-radius: 8px;
+  border: solid 1px black;
+  background: linear-gradient(to right, #ddd 50%, white 50%);
+}
+
+.playerBox{
+  display: inline-block;
+  padding: 5px;
+  border-radius: 8px;
+  border: solid 1px black;
+  background: linear-gradient(to right, #ddd 50%, white 50%);
+}
+
+.computerBox{
+  display: inline-block;
+  padding: 5px;
+  border-radius: 8px;
+  border: solid 1px black;
+  background: linear-gradient(to right, #ddd 50%, white 50%);
+}
+
+#playerSelect{
+  margin: 0px;
+  padding: 0px;
+  margin-left: 40px;
+  height: 30px;
+  width: 80px;
+  background-color:white;
+  border: none;
+}
+
+#computerSelect{
+  margin: 0px;
+  padding: 0px;
+  margin-left: 40px;
+  height: 30px;
+  width: 80px;
+  background-color:white;
+  border: none;
+}
+
+#playerLabel{
+  position: relative;
+  left: 10px;
+}
+
+#computerLabel{
+  position: relative;
+  left: 10px;
+}
+
+#head{
+  cursor: pointer;
+  border: 0px;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  position: relative;
+  right: 7px;
+  top: 2px;
+}
+
+#colorLabel{
+  vertical-align: middle;
+  padding-right: 40px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#flexAbove{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  top: 18vh;
+  margin-left: 10%;
+}
+
+.item{
+  margin-left: 10px;
+}
+
+
+.gridContainer{
+  display: grid;
+  grid-template-columns: repeat(7, 90px);
+  grid-template-rows: repeat(6, 30px);
+  grid-row-gap: 60px;
+  grid-column-gap: 0px;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-items: center;
+  align-items: center;
+}
+
+.gridItem{
+  background-color: white;
+  border-radius: 1000px;
+  width: 72.5px;
+  height: 72.5px;
+  z-index: 2;
+  border: 1px solid black;
+  position: relative;
+} 
+
+
+.table{
+  background-color: #ddd;
+}
+
+
+.top{
+  cursor: pointer;
+  border: none !important;
+  background-color: red !important;
+  opacity: 0;
+}
+
+div.top:hover{
+  opacity: 100;
+}
+
+#main{
+  visibility: visible;
+}
+
+#gameboard{
+  visibility: hidden;
+}
+
+.returnButton{
+  width: 725px;
+  height: 38px;
+  position: absolute;
+  left: 50%;
+  top:50%;
+  z-index: 20;
+  margin-left: -362px;
+  margin-top: -350px;
+}
+
+/* This places the button better when the screen size is smaller */
+@media screen and (max-height: 750px){
+  .returnButton{
+    top: 52%;
+  }
+}
+
+.token{
+  position: relative;
+  right: 1px;
+  overflow: hidden;
+  border-radius: 1000px;
+  border: 1px solid black;
+  width: 74px;
+  height: 74px;
+}
+
+#box{
+  border: 1px solid black;
+  height: 550px;
+  width: 636px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -318px;
+  margin-top: -275px;
+  z-index: 7;
+}
+
+#coloredBoard{
+  position: absolute;
+  width: 635px;
+  height: 550px;
+  padding-top: 100px;
+  background-color: #E66465;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+#selectBox{
+  background-color: white;
+  width: 636px;
+  height: 110px;
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  margin-left: -319px;
+  margin-top: -290px;
+}
+
+/* When win or lose id images are visible, top div.top:hover{opacity: 0;} rather than 100 since the game is over */
+#win{
+  position: absolute;
+  width: 98.35%;
+  height: 75%;
+  left: 1%;
+  top: 20%;
+  visibility: hidden;
+}
+
+#lose{
+  position: absolute;
+  width: 98.35%;
+  height: 75%;
+  left: 1%;
+  top: 20%;
+  visibility: hidden;
+}
+
+p{
+  font-size: 30px;
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-height: 880px){
+  p{
+    top: 90%;
+  }
+}
+
+@media screen and (max-height: 780px){
+  p{
+    top: 95%;
+  }
+}
+
+@media screen and (max-height: 680px){
+  p{
+    top: 97%;
+  }
+}
+
+
+
+
